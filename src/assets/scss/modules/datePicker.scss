@@ -1,0 +1,198 @@
+//==================================
+// date-piker
+.date-piker {
+    position: relative;
+    width: 160px;
+    .d-none {
+        display: none;
+    }
+    input {
+        display: inline-block;
+        font-size: 16px;
+        line-height: 20px;
+
+        padding: 8px 12px 8px 12px;
+        border-radius: 8px;
+        color: $text-color;
+        &:focus,
+        &:hover {
+            border-color: $primary;
+        }
+    }
+    i {
+        position: absolute;
+        top: 0;
+        right: 15px;
+        padding: 10px;
+        height: 100%;
+        color: $primary;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+    }
+    //===================================================
+    &-content {
+        position: absolute;
+        top: 100%;
+
+        box-shadow: 4px 4px 45px rgba(109, 46, 0, 0.35);
+        border-radius: 20px;
+        background: #ffffff;
+        z-index: 1;
+        padding: 32px 24px;
+        .month {
+            display: flex;
+            align-items: center;
+            span.text {
+                font-weight: bold;
+                padding: 0 16px;
+                color: $text-color;
+            }
+            button {
+                background-color: #ffffff00;
+                border: none;
+            }
+            .leftOutlined,
+            .rightOutlined {
+                color: red;
+            }
+        }
+        .radio {
+            margin-top: 15px;
+            div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                label {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    span {
+                        color: $text-color;
+                        font-weight: 500;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        //===============================================
+        .table {
+            margin-top: 5px;
+            width: 100%;
+
+            span {
+                display: block;
+                width: 32px;
+                height: 32px;
+                line-height: 32px;
+                margin: 0 8px;
+                cursor: pointer;
+            }
+            span.disable {
+                opacity: 0.3;
+            }
+
+            th,
+            td {
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 1.4;
+                color: $text-color;
+                text-align: center;
+                &:first-child,
+                &:first-child {
+                    span {
+                        margin-left: -2px;
+                    }
+                }
+                &:last-child,
+                &:last-child {
+                    span {
+                        margin-right: -2px;
+                    }
+                }
+            }
+            th {
+                color: #c55e00;
+                span {
+                    cursor: default;
+                }
+            }
+            td {
+                font-weight: 500;
+                font-size: 16px;
+                span.active,
+                span:hover {
+                    background-color: #ffba7b;
+                    color: $white;
+                    border-radius: 100%;
+                    opacity: 1;
+                }
+            }
+
+            tr {
+                margin: 6px 0;
+                display: block;
+            }
+            .tr-active {
+                background-color: #ffd2a8;
+                border-radius: 100px;
+                span {
+                    color: $white;
+                }
+                span.active {
+                    background-color: #ffd2a8;
+                }
+
+                td:first-child,
+                td:last-child {
+                    span {
+                        background-color: #ffba7b;
+                        color: white;
+                        border-radius: 100%;
+                    }
+                }
+                span.disable {
+                    color: $text-color !important;
+                }
+            }
+        }
+    }
+}
+.icon-calendar {
+    stroke: $primary1;
+}
+.module2 {
+    width: 180px;
+    .date-piker-content {
+        left: 0;
+    }
+}
+.module1 {
+    width: 180px;
+    .date-piker-content {
+        right: 0;
+    }
+}
+.module4 {
+    width: 180px;
+    .date-piker-content {
+        right: 0;
+    }
+    input {
+        background-color: #f7f8fb;
+    }
+}
+.module3 {
+    width: 180px;
+    .date-piker-content {
+        right: 0;
+    }
+    input {
+        background-color: #e0e0e0;
+    }
+    .icon-calendar {
+        stroke: #a5a8b1;
+    }
+}

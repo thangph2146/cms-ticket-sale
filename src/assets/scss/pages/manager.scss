@@ -1,0 +1,45 @@
+//================================
+#tick-manager {
+    padding: 20px;
+    height: 90%;
+    .tick-manager-header {
+        margin-top: 24px;
+    }
+    .tick-manager-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+}
+@mixin staticColor($color, $background) {
+    border: 1px solid $color;
+    background: $background;
+    .icon-list {
+        fill: $color;
+    }
+    span {
+        color: $color;
+    }
+}
+.static {
+    div {
+        padding: 8px 7px;
+        border-radius: 4px;
+        display: inline-block;
+        span {
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 1.2;
+            margin-left: 8px;
+        }
+    }
+    .used {
+        @include staticColor(#919dba, #eaf1f8);
+    }
+    .notUsed {
+        @include staticColor(#03ac00, #def7e0);
+    }
+    .expired {
+        @include staticColor(#fd5959, #f8ebe8);
+    }
+}

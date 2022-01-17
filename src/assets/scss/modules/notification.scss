@@ -1,0 +1,18 @@
+.notification-container{
+    a{
+        margin: 0 10px;
+        color: #ffb800;
+    }
+    .profile{
+        position: static;
+        border-radius: 30px;
+        
+        img{
+            background-position: 50% 50%;
+            flex: none;
+            width: 48px;
+            height: 48px;
+            margin-left: 10px;
+        }
+      }
+}

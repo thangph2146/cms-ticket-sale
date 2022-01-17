@@ -1,0 +1,110 @@
+/// button filter
+
+.btn-filter {
+    padding: 11px 16px;
+    border: 1px solid #ff993c;
+    border-radius: 6px;
+    background-color: #fff;
+    cursor: pointer;
+
+    @include dCenter();
+
+    span {
+        font-weight: bold;
+        font-size: 18px;
+        color: #ff993c;
+        margin-left: 12px;
+    }
+    i{
+        color: #ff993c;
+        padding-top: 5px;
+
+    }
+
+    &:hover{
+        background-color: #ff993c;
+        span {
+            color: #fff;
+        }
+        i{
+            color: #fff;
+            padding-top: 5px;
+    
+        }
+    }
+}
+.btn-import {
+    display: inline-block;
+    padding: 11px 16px;
+    border: 1px solid #ff993c;
+    border-radius: 6px;
+    background-color: #fff;
+    cursor: pointer;
+
+    font-weight: bold;
+    font-size: 18px;
+    color: #ff993c;
+    margin-left: 12px;
+    &:hover{
+        background-color: #ff993c;
+        color: #fff;
+    }
+}
+.btn-modal {
+    font-weight: bold;
+    font-size: 18px;
+    color: #ff993c;
+
+    padding: 11px 63px;
+    border: 1px solid #ff993c;
+    border-radius: 8px;
+    background-color: #fff;
+    &:hover {
+        background-color: #ff993c;
+        color: #fff;
+    }
+}
+.btn-primary {
+    padding: 11px 24px;
+    margin: 0 10px;
+    background: #ff993c;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0);
+
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+        border: 1px solid #ff993c;
+        color: #ff993c;
+        background-color: #fff;
+    }
+}
+.btn-update {
+    background-color: #fff;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    color: #ff993c;
+    @include dCenter;
+    cursor: pointer;
+}
+.btn-save{
+    padding: 11px 63px;
+    margin: 0 10px;
+    background: #ff993c;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0);
+
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+    &:hover {
+        border: 1px solid #ff993c;
+        color: #ff993c;
+        background-color: #fff;
+    }
+}

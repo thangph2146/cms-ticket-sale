@@ -1,0 +1,51 @@
+.navbar{
+    .top{
+        height: 10%;
+        .logo{
+            position: static;
+            width: 133px;
+            height: 58px;
+            margin: 17px 33px;
+            img{
+                width: 133px;
+                height: 58px;
+                background-position: 50% 50%;
+                position: static;
+            }
+           
+        }
+    }
+    .bottom{
+        height: 90%;
+        padding:33px;
+        display: flex;
+        flex-direction: column;
+        p{
+            margin-left: 85px;
+        }
+        .tag{
+            padding: 33px;
+            border-radius: 15px;
+            line-height: 100%;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 18px;
+            color:rgba(30, 13, 3, 1);
+            i{
+                margin: 10px;
+            }
+            &.active{
+                background-color: rgba(255, 184, 0, 1);
+                color: white;
+            }
+            &:last-child{
+                p{
+                    font-weight: 500;
+                    font-size: 18px;
+                }
+            }
+           
+        }
+    }
+}
+

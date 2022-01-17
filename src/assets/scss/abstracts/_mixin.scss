@@ -1,0 +1,10 @@
+@mixin dCenter() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin dBetween() {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

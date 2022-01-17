@@ -1,0 +1,197 @@
+//===========================
+//============= modal ==============
+//===========================
+@mixin textSpan() {
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: block;
+    font-size: 16px;
+}
+.ant-modal-content {
+    border-radius: 10px;
+    .ant-modal-close {
+        display: none;
+    }
+    .ant-modal-footer {
+        display: none;
+    }
+
+}
+
+.box-modal {
+    &-title {
+        @include dCenter();
+        span {
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 1.5;
+
+            text-align: center;
+        }
+    }
+    &-day {
+        margin-top: 25px;
+        &-content {
+            span {
+                @include textSpan();
+            }
+        }
+    }
+    &-static {
+        margin: 15px 0;
+        span {
+            @include textSpan();
+        }
+        .ant-radio-group {
+            @include dBetween();
+            label {
+                @include dBetween();
+                span {
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+    &-check {
+        margin: 15px 0;
+        span {
+            @include textSpan();
+        }
+        .row1,
+        .row2 {
+            margin-top: 2px;
+            span {
+                font-weight: 500;
+            }
+        }
+    }
+    &-button {
+        margin-top: 35px;
+        @include dCenter();
+    }
+}
+//======================================
+.setting {
+    .text {
+        font-weight: 600;
+        font-size: 16px;
+        opacity: 0.7;
+        color: $text-color;
+
+        padding-bottom: 4px;
+        display: block;
+    }
+    .red {
+        color: #fd5959;
+    }
+    .name {
+        input {
+            max-width: 367px;
+            border-radius: 8px;
+            padding: 8px 12px;
+            border: 1px solid #a5a8b1;
+
+            font-weight: 500;
+            font-size: 16px;
+            color: #a5a8b1;
+            display: block;
+        }
+    }
+    .date {
+        margin-top: 15px;
+        .date-content {
+            display: flex;
+            align-items: center;
+            input {
+                font-weight: 500;
+                font-size: 16px;
+                color: #a5a8b1;
+            }
+            .time {
+                margin-left: 10px;
+                border-radius: 8px;
+                padding: 6px 12px;
+                border: 1px solid #a5a8b1;
+                svg {
+                    fill: $primary1;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+    }
+    //===============================
+    .sub-text {
+        font-weight: 500;
+        font-size: 16px;
+        color: $text-color;
+        opacity: 0.7;
+    }
+    .price {
+        margin-top: 15px;
+        input {
+            width: 150px;
+            background: #f1f4f8;
+            padding: 10px 12px;
+            border-radius: 8px;
+            display: block;
+            margin: 0px 8px;
+        }
+        .price-combo,
+        .price-default {
+            display: flex;
+            align-items: center;
+            margin-top: 12px;
+        }
+        .price-per {
+            width: 72px;
+        }
+    }
+    .static {
+        margin-top: 15px;
+        &-select {
+            padding: 4px;
+            border: 1px solid #a5a8b1;
+            border-radius: 8px;
+
+            font-weight: 500;
+            font-size: 16px;
+            color: #1e0d03;
+
+            opacity: 0.7;
+            div,span,input{
+                border: none !important;
+                outline: none !important;
+                box-shadow: none !important;
+                &:hover,&:focus{
+                    border: none !important;
+                    outline: none !important;
+                }
+                &::after{
+                    display: none !important;
+                }
+            }
+            span.ant-select-arrow{
+                width: 15px;
+                height: 15px;
+            }
+            svg{
+                fill:$primary1;
+                width: 10px;
+                height: 10px;
+            }
+        }
+    }
+    .note{
+        margin-top: 5px;
+        .sub{
+            font-size: 12px;
+            opacity: 0.4;
+        }
+    }
+    .box-modal-footer{
+        margin-top: 10px;
+        @include dCenter
+    }
+    
+}
