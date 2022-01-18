@@ -18,10 +18,17 @@ export const modalManagerClose = () => {
     };
 };
 //===============================================
-export const modalSettingOpen = () => {
+export const modalSettingOpenAdd = () => {
     return (dispatch: Dispatch<ActionModal>) => {
         dispatch({
-            type: ActionType.MODAL_SETTING_OPEN,
+            type: ActionType.MODAL_SETTING_OPEN_ADD,
+        });
+    };
+};
+export const modalSettingOpenUpdate = () => {
+    return (dispatch: Dispatch<ActionModal>) => {
+        dispatch({
+            type: ActionType.MODAL_SETTING_OPEN_UPDATE,
         });
     };
 };

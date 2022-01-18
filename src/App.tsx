@@ -3,7 +3,8 @@ import { BrowserRouter, Routes } from 'react-router-dom';
 import Container from './layout/container/mainContainer';
 import NavBarController from './layout/nav/mainNav';
 import ModalManager from './modules/modalManager/ModalManager';
-import ModalSetting from './modules/modalSetting/ModalSetting';
+import ModalSettingAdd from './modules/modalSetting/ModalSettingAdd';
+import ModalSettingUpdate from './modules/modalSetting/ModalSettingUpdate';
 
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
          
       </BrowserRouter>
       <ModalManager />
-      <ModalSetting />
+      <ModalSettingAdd />
+      <ModalSettingUpdate />
     </div>
   );
 }

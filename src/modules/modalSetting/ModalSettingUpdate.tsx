@@ -8,7 +8,7 @@ import { TimePicker } from 'antd';
 
 import moment from 'moment';
 const { Option } = Select;
-const ModalSetting = () => {
+const ModalSettingUpdate = () => {
     const dispatch = useDispatch();
     const isModal = useSelector((state: any) => state.modal.isModalSetting);
     const { modalSettingClose } = bindActionCreators(actionCreators, dispatch);
@@ -86,16 +86,26 @@ const ModalSetting = () => {
                 className="box-modal setting"
                 onSubmit={(e: any) => e.preventDefault()}>
                 <div className="box-modal-title">
-                    <span>Thêm gói vé</span>
+                    <span>Cập nhật thông tin gói vé</span>
                 </div>
                 <div className="box-modal-body">
-                    <div className="name">
-                        {' '}
-                        <span className="text">
-                            Tên gói vé <span className="red">*</span>
-                        </span>
-                        <Input placeholder="Nhập tên gói vé" />
+                    <div className="events">
+                        <div className="code-event">
+                            {' '}
+                            <span className="text">
+                                Mã sự kiện <span className="red">*</span>
+                            </span>
+                            <Input placeholder="Nhập mã sự kiện" />
+                        </div>
+                        <div className="name-event">
+                            {' '}
+                            <span className="text">
+                                Mã sự kiện <span className="red">*</span>
+                            </span>
+                            <Input placeholder="Nhập tên sự kiện" />
+                        </div>
                     </div>
+                    
                     <Row className="date">
                         <Col span={12}>
                             <span className="text">Ngày áp dụng</span>
@@ -179,4 +189,4 @@ const ModalSetting = () => {
     );
 };
 
-export default ModalSetting;
+export default ModalSettingUpdate;

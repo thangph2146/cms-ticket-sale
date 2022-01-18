@@ -25,7 +25,14 @@ const reducer = (state: object = initialState, action: ActionModal): object => {
             };
             return modal;
         }
-        case ActionType.MODAL_SETTING_OPEN: {
+        case ActionType.MODAL_SETTING_OPEN_ADD: {
+            const modal = {
+                ...state,
+                isModalSetting: true,
+            };
+            return modal;
+        }
+        case ActionType.MODAL_SETTING_OPEN_UPDATE: {
             const modal = {
                 ...state,
                 isModalSetting: true,

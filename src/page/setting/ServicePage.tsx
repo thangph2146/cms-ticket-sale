@@ -17,7 +17,7 @@ function ServicePage() {
     });
     //===============================
     const dispatch = useDispatch();
-    const { modalSettingOpen } = bindActionCreators(actionCreators, dispatch);
+    const { modalSettingOpenAdd } = bindActionCreators(actionCreators, dispatch);
     return (
         <div id="tick-service" className="page-content">
             <Title children={'Danh sách vé'} />
@@ -34,7 +34,7 @@ function ServicePage() {
                         <ButtonImport />
                         <button
                             className="btn-primary"
-                            onClick={modalSettingOpen}
+                            onClick={modalSettingOpenAdd}
                         >
                             Thêm gói vé
                         </button>

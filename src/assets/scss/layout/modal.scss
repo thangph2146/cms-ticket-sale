@@ -72,6 +72,7 @@
 }
 //======================================
 .setting {
+    padding: 20px;
     .text {
         font-weight: 600;
         font-size: 16px;
@@ -95,6 +96,41 @@
             font-size: 16px;
             color: #a5a8b1;
             display: block;
+        }
+    }
+    .events {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        .code-event{
+            width: 45%;
+            input {
+                max-width: 367px;
+                border-radius: 8px;
+                padding: 8px 12px;
+                border: 1px solid #a5a8b1;
+    
+                font-weight: 500;
+                font-size: 16px;
+                color: #a5a8b1;
+                display: block;
+            }
+        }
+
+        .name-event {
+            width: 45%;
+            margin-left: 5%;
+            input {
+                max-width: 367px;
+                border-radius: 8px;
+                padding: 8px 12px;
+                border: 1px solid #a5a8b1;
+    
+                font-weight: 500;
+                font-size: 16px;
+                color: #a5a8b1;
+                display: block;
+            }
         }
     }
     .date {
