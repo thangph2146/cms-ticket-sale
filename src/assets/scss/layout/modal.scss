@@ -69,6 +69,21 @@
         margin-top: 35px;
         @include dCenter();
     }
+    &-body{
+        .static{
+            div{
+                border-radius: 10px;
+                padding: 4px;
+                width: 90%;
+                span {
+                    margin-right: 10px;
+                    padding-right: 10px;
+                    font-size: none;
+                }
+            }
+       
+        }
+    }
 }
 //======================================
 .setting {
@@ -135,26 +150,32 @@
     }
     .date {
         margin-top: 15px;
-        .date-content {
-            display: flex;
-            align-items: center;
-            input {
-                font-weight: 500;
-                font-size: 16px;
-                color: #a5a8b1;
-            }
-            .time {
-                margin-left: 10px;
-                border-radius: 8px;
-                padding: 6px 12px;
-                border: 1px solid #a5a8b1;
-                svg {
-                    fill: $primary1;
-                    width: 20px;
-                    height: 20px;
+        display: flex;
+        flex-direction: row;
+      
+            .date-content {
+                display: flex;
+                align-items: center;
+                max-width: 90%;
+                input {
+                    font-size: 16px;
+                    color: #a5a8b1;
+                    
+                }
+                .time {
+                    margin-left: 10px;
+                    border-radius: 8px;
+                    padding: 6px 12px;
+                    border: 1px solid #a5a8b1;
+                    svg {
+                        fill: $primary1;
+                        width: 20px;
+                        height: 20px;
+                    }
                 }
             }
         }
+        
     }
     //===============================
     .sub-text {
@@ -188,13 +209,13 @@
         &-select {
             padding: 4px;
             border: 1px solid #a5a8b1;
-            border-radius: 8px;
-
+            border-radius: 3px;
             font-weight: 500;
             font-size: 16px;
             color: #1e0d03;
 
             opacity: 0.7;
+            
             div,span,input{
                 border: none !important;
                 outline: none !important;
@@ -213,8 +234,8 @@
             }
             svg{
                 fill:$primary1;
-                width: 10px;
-                height: 10px;
+                width: 20px;
+                height: 20px;
             }
         }
     }
@@ -230,4 +251,3 @@
         @include dCenter
     }
     
-}

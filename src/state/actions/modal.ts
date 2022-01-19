@@ -15,8 +15,11 @@ interface ModalSettingOpenUpdate {
     type: ActionType.MODAL_SETTING_OPEN_UPDATE;
 }
 
-interface ModalSettingClose {
-    type: ActionType.MODAL_SETTING_CLOSE;
+interface ModalSettingCloseAdd {
+    type: ActionType.MODAL_SETTING_CLOSE_ADD;
+}
+interface ModalSettingCloseUpdate {
+    type: ActionType.MODAL_SETTING_CLOSE_UPDATE;
 }
 //==================================================
 interface ModalManagerData {
@@ -29,5 +32,6 @@ export type ActionModal =
     | ModalManagerClose
     | ModalSettingOpenAdd
     | ModalSettingOpenUpdate
-    | ModalSettingClose
+    | ModalSettingCloseAdd
+    | ModalSettingCloseUpdate
     | ModalManagerData;

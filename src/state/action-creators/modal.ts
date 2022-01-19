@@ -33,14 +33,21 @@ export const modalSettingOpenUpdate = () => {
     };
 };
 
-export const modalSettingClose = () => {
+export const modalSettingCloseAdd = () => {
     return (dispatch: Dispatch<ActionModal>) => {
         dispatch({
-            type: ActionType.MODAL_SETTING_CLOSE,
+            type: ActionType.MODAL_SETTING_CLOSE_ADD,
         });
     };
 };
 
+export const modalSettingCloseUpdate = () => {
+    return (dispatch: Dispatch<ActionModal>) => {
+        dispatch({
+            type: ActionType.MODAL_SETTING_CLOSE_UPDATE,
+        });
+    };
+};
 export const modalManagerData = (data: any) => {
     return (dispatch: Dispatch<ActionModal>) => {
         dispatch({

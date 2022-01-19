@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import LineChart from "../modules/lineChart/LineChart";
-import LineChartDatePicker from "../modules/lineChart/DatePicker";
-import PieChartDatePicker from "../modules/pieChart/DatePicker";
 import PieChart from "../modules/pieChart/PieChart";
 import { data, data2, options, options2 } from "../modules/pieChart/dataPiechart";
 import DatePiker from '../modules/DatePiker';

@@ -10,8 +10,8 @@ import moment from 'moment';
 const { Option } = Select;
 const ModalSettingAdd = () => {
     const dispatch = useDispatch();
-    const isModal = useSelector((state: any) => state.modal.isModalSetting);
-    const { modalSettingClose } = bindActionCreators(actionCreators, dispatch);
+    const isModal = useSelector((state: any) => state.modal.isModalSettingAdd);
+    const { modalSettingCloseAdd } = bindActionCreators(actionCreators, dispatch);
     //===============================================
     const [state, setState] = useState({
         dayStart: {
@@ -113,7 +113,7 @@ const ModalSettingAdd = () => {
                             </div>
                         </Col>
                         <Col span={12}>
-                            <span className="text">Ngày áp dụng</span>
+                            <span className="text">Ngày hết hạn</span>
                             <div className="date-content">
                                 <DatePiker
                                     activeDate={state.dayStart}
@@ -142,7 +142,7 @@ const ModalSettingAdd = () => {
                         <div className="price-combo">
                             <Checkbox onChange={onChangec}>
                                 <span className="sub-text">
-                                    Vé lẻ (vnđ/vé) với giá
+                                    Combo vé với giá
                                 </span>
                             </Checkbox>
                             <Input placeholder="Giá vé" />
@@ -156,7 +156,7 @@ const ModalSettingAdd = () => {
                         <Select
                             showSearch
                             style={{ width: 200 }}
-                            className='tinh-trang-select'
+                            className='static-select'
                             defaultValue="1">
                             <Option value="1">Đang áp dụng</Option>
                         </Select>
@@ -167,10 +167,10 @@ const ModalSettingAdd = () => {
                     </div>
                 </div>
                 <div className="box-modal-footer">
-                    <button className="btn-modal" onClick={modalSettingClose}>
+                    <button className="btn-modal" onClick={modalSettingCloseAdd}>
                         Hủy
                     </button>
-                    <button className="btn-save" onClick={modalSettingClose}>
+                    <button className="btn-save" onClick={modalSettingCloseAdd}>
                         Lưu
                     </button>
                 </div>

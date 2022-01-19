@@ -10,8 +10,8 @@ import moment from 'moment';
 const { Option } = Select;
 const ModalSettingUpdate = () => {
     const dispatch = useDispatch();
-    const isModal = useSelector((state: any) => state.modal.isModalSetting);
-    const { modalSettingClose } = bindActionCreators(actionCreators, dispatch);
+    const isModal = useSelector((state: any) => state.modal.isModalSettingUpdate);
+    const { modalSettingCloseUpdate } = bindActionCreators(actionCreators, dispatch);
     //===============================================
     const [state, setState] = useState({
         dayStart: {
@@ -100,7 +100,7 @@ const ModalSettingUpdate = () => {
                         <div className="name-event">
                             {' '}
                             <span className="text">
-                                Mã sự kiện <span className="red">*</span>
+                                Tên sự kiện <span className="red">*</span>
                             </span>
                             <Input placeholder="Nhập tên sự kiện" />
                         </div>
@@ -123,7 +123,7 @@ const ModalSettingUpdate = () => {
                             </div>
                         </Col>
                         <Col span={12}>
-                            <span className="text">Ngày áp dụng</span>
+                            <span className="text">Ngày hết hạn</span>
                             <div className="date-content">
                                 <DatePiker
                                     activeDate={state.dayStart}
@@ -152,7 +152,7 @@ const ModalSettingUpdate = () => {
                         <div className="price-combo">
                             <Checkbox onChange={onChangec}>
                                 <span className="sub-text">
-                                    Vé lẻ (vnđ/vé) với giá
+                                    Combo vé với giá
                                 </span>
                             </Checkbox>
                             <Input placeholder="Giá vé" />
@@ -166,7 +166,7 @@ const ModalSettingUpdate = () => {
                         <Select
                             showSearch
                             style={{ width: 200 }}
-                            className='tinh-trang-select'
+                            className='static-select'
                             defaultValue="1">
                             <Option value="1">Đang áp dụng</Option>
                         </Select>
@@ -177,10 +177,10 @@ const ModalSettingUpdate = () => {
                     </div>
                 </div>
                 <div className="box-modal-footer">
-                    <button className="btn-modal" onClick={modalSettingClose}>
+                    <button className="btn-modal" onClick={modalSettingCloseUpdate}>
                         Hủy
                     </button>
-                    <button className="btn-save" onClick={modalSettingClose}>
+                    <button className="btn-save" onClick={modalSettingCloseUpdate}>
                         Lưu
                     </button>
                 </div>

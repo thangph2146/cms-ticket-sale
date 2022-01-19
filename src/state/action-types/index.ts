@@ -9,7 +9,8 @@ export enum ActionType {
     //===============================================
     MODAL_SETTING_OPEN_ADD = 'MODAL_SETTING_OPEN_ADD',
     MODAL_SETTING_OPEN_UPDATE = 'MODAL_SETTING_OPEN_UPDATE',
-    MODAL_SETTING_CLOSE = 'MODAL_SETTING_CLOSE',
+    MODAL_SETTING_CLOSE_ADD = 'MODAL_SETTING_CLOSE_ADD',
+    MODAL_SETTING_CLOSE_UPDATE = 'MODAL_SETTING_CLOSE_UPDATE',
     //===============================================
     MODAL_MANAGER_DATA = 'MODAL_MANAGER_DATA',
 }
