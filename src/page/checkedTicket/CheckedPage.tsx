@@ -4,7 +4,7 @@ import DatePiker from "../../modules/DatePiker";
 import Search from "../../modules/search/Search";
 import TableCheck from "../../modules/tableCheck/TableCheck";
 import Title from "../../modules/title/Title";
-import { data } from "./data";
+import  data  from "./data.json";
 
 function CheckedPage() {
     const [state, setState] = useState({
@@ -72,6 +72,17 @@ function CheckedPage() {
             },
         });
     };
+    const handleSearch = (e: string) => {
+        let datas = [{}];
+        if (e) {
+            datas = state.dataTable.filter(function (item: any) {
+                return (
+                    item.bookingCode.toLowerCase().indexOf(e.toLowerCase()) !== -1
+                );
+            });
+        }
+
+    };
     //=====================================================================
     return (
         <Row id="tick-check">
@@ -83,6 +94,7 @@ function CheckedPage() {
                         <Search
                             children={'Tìm bằng số vé'}
                             background={'#F7F7F8'}
+                           onSubmit={handleSearch}
                         />
                     </Col>
                     <Col>

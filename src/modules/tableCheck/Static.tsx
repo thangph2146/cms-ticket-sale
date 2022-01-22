@@ -6,7 +6,7 @@ interface props {
 }
 const Static = (props: props) => {
     return (
-        <div className="tinh-trang">
+        <div className="static">
             <div className={props.class}>
                 <AiOutlineUnorderedList />
                 <span>{props.text}</span>

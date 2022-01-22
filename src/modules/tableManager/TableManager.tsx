@@ -33,6 +33,7 @@ const TableManager = (props:any) => {
                     position: ['bottomCenter'],
                     itemRender: itemRender,
                 }}
+               
             />
         </div>
     );

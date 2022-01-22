@@ -7,7 +7,9 @@ import Search from "../../modules/search/Search";
 import TableSetting from "../../modules/tableSetting/TableSetting";
 import Title from "../../modules/title/Title";
 import { actionCreators } from "../../state";
-import { data } from "./data";
+import  data  from "./data.json";
+
+
 
 function ServicePage() {
     const [state, setState] = useState({
@@ -15,6 +17,17 @@ function ServicePage() {
         dataFilter: {},
         dataTable: data,
     });
+    const handleSearch = (e: string) => {
+        let datas = [{}];
+        if (e) {
+            datas = state.dataTable.filter(function (item: any) {
+                return (
+                    item.bookingCode.toLowerCase().indexOf(e.toLowerCase()) !== -1
+                );
+            });
+        }
+    
+    };
     //===============================
     const dispatch = useDispatch();
     const { modalSettingOpenAdd } = bindActionCreators(actionCreators, dispatch);
@@ -27,6 +40,7 @@ function ServicePage() {
                     <Search
                         children={'Tìm bằng số vé'}
                         background={'#F7F7F8'}
+                        onSubmit={handleSearch}
                     />
                 </Col>
                 <Col>

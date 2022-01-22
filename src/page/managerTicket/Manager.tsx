@@ -1,33 +1,48 @@
 import { Col, Row } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ButtonFilter from "../../modules/buttons/ButtonFilter";
 import ButtonImport from "../../modules/buttons/ButtonImport";
 import Search from "../../modules/search/Search";
 import TableManager from "../../modules/tableManager/TableManager";
 import Title from "../../modules/title/Title";
-import { data } from "./data";
+import  data  from "./data.json";
 
 function ManagerPage() {
     const [state, setState] = useState({
-        textSearch: '2022',
+        
         dataFilter: {},
         dataTable: data,
     });
-    //============================================
-    // search
-    //============================================
-    const handleSearch = (e: string) => {
+    const handleSearch = (e: any) => {
+        console.log(e)
         let datas = [{}];
         if (e) {
-            datas = data.filter(function (item: any) {
+            datas = state.dataTable.filter(function (item: any) {
                 return (
-                    item.tenSuKien.toLowerCase().indexOf(e.toLowerCase()) !== -1
+                    item.bookingCode.toLowerCase().indexOf(e.toLowerCase()) !== -1
                 );
             });
         }
 
     };
-    handleSearch('2022');
+    console.log(state.dataTable)
+    // useEffect(() => {
+    //     async function fetchTicketData(){
+    //         try{ 
+    //             const requestUrl = './';
+    //             const response = await fetch(requestUrl);
+    //             const responseJSON = await response.json();
+    //             console.log({responseJSON})
+
+    //             const {data} = responseJSON;
+    //             setState(data);
+    //         }catch(err){
+    //             console.log('failed to fetch data');
+    //         }
+            
+    //     }
+    //     fetchTicketData();
+    // },[])
     return (
         <div id="tick-manager">
             <Title children={'Danh sách vé'} />
@@ -37,6 +52,7 @@ function ManagerPage() {
                     <Search
                         children={'Tìm bằng số vé'}
                         background={'#F7F7F8'}
+                        onSubmit={handleSearch}
                     />
                 </Col>
                 <Col span={8} offset={8}>
