@@ -1,50 +1,30 @@
 import { Form, Input } from 'antd';
-import React, { useState } from 'react';
 import {GrSearch} from 'react-icons/gr';
 
-interface typeSearch {
-    children: string;
-    background: string;
-    onSubmit: Function;
-}
 
 
- 
+const Search = (props: any) => {
 
-
-const Search = (props: typeSearch) => {
-    const [searchTerm, setSearchTerm] = useState('')
-    const onFinish = (values: any) => {
-        console.log('Success:', values);
-      
-        
-      };
-    
-     const onFinishFailed = (errorInfo: any) => {
-        console.log('Failed:', errorInfo);
-      };
     return (
         <Form className="search"
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
-        >
+        onFinish={props.onFinish}
+        onFinishFailed={props.onFinishFailed}
+        autoComplete="off">
            
             <Form.Item
-                name="bookingCode"
-                rules={[
-                    { required: true, message: 'Please input your username!' },
-                ]}>
+                name={props.name}
+                rules={props.rules}>
                 <Input
-                    placeholder={props.children}
-                    style={{ background: props.background }}
+                    placeholder={props.placeholder}
+                    style={props.style}
                     
                 />
             </Form.Item>
-            <button type="submit">
+            <button type="submit" >
                 {' '}
                 <GrSearch />
             </button>
+           
         </Form>
     );
 };

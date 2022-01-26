@@ -8,7 +8,7 @@ const Static = (props: props) => {
     return (
         <div className="static">
             <div className={props.class}>
-                <AiOutlineUnorderedList />
+               
                 <span>{props.text}</span>
             </div>
         </div>

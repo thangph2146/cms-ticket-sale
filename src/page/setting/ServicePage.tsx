@@ -1,8 +1,11 @@
-import { Col, Row } from "antd";
-import { useState } from "react";
+import { Col, Form, Input, Row } from "antd";
+import { ChangeEvent, useState } from "react";
+import { GrSearch } from "react-icons/gr";
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import ButtonImport from "../../modules/buttons/ButtonImport";
+import ModalSettingAdd from "../../modules/modalSetting/ModalSettingAdd";
+import ModalSettingUpdate from "../../modules/modalSetting/ModalSettingUpdate";
 import Search from "../../modules/search/Search";
 import TableSetting from "../../modules/tableSetting/TableSetting";
 import Title from "../../modules/title/Title";
@@ -13,35 +16,57 @@ import  data  from "./data.json";
 
 function ServicePage() {
     const [state, setState] = useState({
-        textSearch: '2022',
-        dataFilter: {},
         dataTable: data,
+        newPackage: []
     });
-    const handleSearch = (e: string) => {
-        let datas = [{}];
-        if (e) {
-            datas = state.dataTable.filter(function (item: any) {
-                return (
-                    item.bookingCode.toLowerCase().indexOf(e.toLowerCase()) !== -1
-                );
-            });
-        }
     
-    };
     //===============================
     const dispatch = useDispatch();
     const { modalSettingOpenAdd } = bindActionCreators(actionCreators, dispatch);
+
+    const[textSearch,setTextSearch] = useState('')
+
+    const onFinish = (values: any) => {
+        console.log('Success: ',values)
+        return setTextSearch(values.maGoi.trim())
+     };
+    
+    const onFinishFailed = (errorInfo: any) => {
+         console.log('Failed:', errorInfo);
+         return setTextSearch('')
+     };
+    
+    const handleSearchFilter=()=>{
+        if(textSearch) {
+            const dataFilter = state.dataTable.filter(e=>e.maGoi.toLowerCase().includes(textSearch.toLowerCase()))
+            return dataFilter
+        }
+        else{
+            return state.dataTable;
+        }
+         
+     }
+
     return (
         <div id="tick-service" className="page-content">
+            <ModalSettingAdd />
+            
             <Title children={'Danh sách vé'} />
 
             <Row className="tick-service-header" justify="space-between">
                 <Col span={8}>
-                    <Search
-                        children={'Tìm bằng số vé'}
-                        background={'#F7F7F8'}
-                        onSubmit={handleSearch}
+                    <Search 
+                        onFinish={onFinish}
+                        onFinishFailed={onFinishFailed}
+                        name="maGoi"
+                        rules={[
+                            { required: true, message: 'Please input your package code!' }
+                        ]}
+                        placeholder={'Nhập vào mã gói...'}
+                        style={{ background: '#F7F7F8' }}
+
                     />
+               
                 </Col>
                 <Col>
                     <div className="tick-service-buttons">
@@ -56,7 +81,8 @@ function ServicePage() {
                 </Col>
             </Row>
             <Row>
-                <TableSetting data={state.dataTable} />
+                <TableSetting data={handleSearchFilter()} />
+                <ModalSettingUpdate />
             </Row>
         </div>
     );

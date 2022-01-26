@@ -2,8 +2,8 @@
     {
         "key": "1",
         "stt": "1",
-        "bookingCode": "ALT20210501",
-        "soVe": "012345678934",
+        "bookingCode": "ALT20210875",
+        "soVe": "012345678123",
         "tenSuKien": "Hội chợ triển lãm tiêu dùng 2022",
         "tinhTrang": "daSuDung",
         "ngaySuDung": "14/04/2021",
@@ -14,122 +14,122 @@
         "key": "2",
         "stt": "2",
         "bookingCode": "ALT20210501",
-        "soVe": "012345678934",
+        "soVe": "012345678234",
         "tenSuKien": "Hội chợ triển lãm tiêu dùng 2022",
         "tinhTrang": "chuaSuDung",
-        "ngaySuDung": "14/04/2021",
-        "ngayXuatVe": "14/04/2021",
-        "check": "Cổng 1"
+        "ngaySuDung": "14/05/2021",
+        "ngayXuatVe": "14/05/2021",
+        "check": "Cổng 4"
     },
     {
         "key": "3",
         "stt": "3",
-        "bookingCode": "ALT20210501",
-        "soVe": "012345678934",
+        "bookingCode": "ALT20213401",
+        "soVe": "012345678345",
         "tenSuKien": "Hội chợ triển lãm tiêu dùng 2022",
         "tinhTrang": "hetHan",
-        "ngaySuDung": "14/04/2021",
-        "ngayXuatVe": "14/04/2021",
-        "check": "Cổng 1"
+        "ngaySuDung": "14/06/2021",
+        "ngayXuatVe": "14/06/2021",
+        "check": "Cổng 4"
     },
     {
         "key": "4",
         "stt": "4",
-        "bookingCode": "ALT20210501",
-        "soVe": "012345678934",
+        "bookingCode": "ALT20320543",
+        "soVe": "012345678543",
         "tenSuKien": "Hội chợ triển lãm tiêu dùng 2022",
         "tinhTrang": "daSuDung",
-        "ngaySuDung": "14/04/2021",
-        "ngayXuatVe": "14/04/2021",
-        "check": "Cổng 1"
+        "ngaySuDung": "14/07/2021",
+        "ngayXuatVe": "14/07/2021",
+        "check": "Cổng 5"
     },
     {
         "key": "5",
         "stt": "5",
-        "bookingCode": "ALT20210501",
+        "bookingCode": "ALT20253501",
         "soVe": "012345678934",
         "tenSuKien": "Hội chợ triển lãm tiêu dùng 2022",
         "tinhTrang": "daSuDung",
-        "ngaySuDung": "14/04/2021",
-        "ngayXuatVe": "14/04/2021",
-        "check": "Cổng 1"
+        "ngaySuDung": "14/08/2021",
+        "ngayXuatVe": "14/08/2021",
+        "check": "Cổng 5"
     },
     {
         "key": "6",
         "stt": "6",
-        "bookingCode": "ALT20210501",
-        "soVe": "012345678934",
+        "bookingCode": "ALT20286501",
+        "soVe": "012345678235",
         "tenSuKien": "Hội chợ triển lãm tiêu dùng 2022",
         "tinhTrang": "daSuDung",
-        "ngaySuDung": "14/04/2021",
-        "ngayXuatVe": "14/04/2021",
-        "check": "Cổng 1"
+        "ngaySuDung": "14/09/2021",
+        "ngayXuatVe": "14/09/2021",
+        "check": "Cổng 4"
     },
     {
         "key": "7",
         "stt": "7",
-        "bookingCode": "ALT20210501",
-        "soVe": "012345678934",
+        "bookingCode": "ALT20970501",
+        "soVe": "012345678765",
         "tenSuKien": "Hội chợ triển lãm tiêu dùng 2022",
         "tinhTrang": "daSuDung",
-        "ngaySuDung": "14/04/2021",
-        "ngayXuatVe": "14/04/2021",
+        "ngaySuDung": "14/10/2021",
+        "ngayXuatVe": "14/10/2021",
         "check": "Cổng 1"
     },
     {
         "key": "8",
         "stt": "8",
-        "bookingCode": "ALT20210501",
-        "soVe": "012345678934",
+        "bookingCode": "ALT20360501",
+        "soVe": "012345678987",
         "tenSuKien": "Hội chợ triển lãm tiêu dùng 2022",
         "tinhTrang": "daSuDung",
-        "ngaySuDung": "14/04/2021",
-        "ngayXuatVe": "14/04/2021",
-        "check": "Cổng 1"
+        "ngaySuDung": "14/11/2021",
+        "ngayXuatVe": "14/11/2021",
+        "check": "Cổng 2"
     },
     {
         "key": "9",
         "stt": "9",
-        "bookingCode": "ALT20210501",
-        "soVe": "012345678934",
+        "bookingCode": "ALT200990501",
+        "soVe": "012345678789",
         "tenSuKien": "Hội chợ triển lãm tiêu dùng 2022",
         "tinhTrang": "daSuDung",
-        "ngaySuDung": "14/04/2021",
-        "ngayXuatVe": "14/04/2021",
-        "check": "Cổng 1"
+        "ngaySuDung": "14/12/2021",
+        "ngayXuatVe": "14/12/2021",
+        "check": "Cổng 3"
     },
     {
         "key": "10",
         "stt": "10",
-        "bookingCode": "ALT20210501",
-        "soVe": "012345678934",
+        "bookingCode": "ALT20278501",
+        "soVe": "012345678098",
         "tenSuKien": "Hội chợ triển lãm tiêu dùng 2022",
         "tinhTrang": "daSuDung",
-        "ngaySuDung": "14/04/2021",
-        "ngayXuatVe": "14/04/2021",
+        "ngaySuDung": "14/01/2021",
+        "ngayXuatVe": "14/01/2021",
         "check": "Cổng 1"
     },
     {
         "key": "11",
         "stt": "11",
-        "bookingCode": "ALT20210501",
-        "soVe": "012345678934",
+        "bookingCode": "ALT20050501",
+        "soVe": "012345678567",
         "tenSuKien": "Hội chợ triển lãm tiêu dùng 2022",
         "tinhTrang": "daSuDung",
         "ngaySuDung": "14/04/2021",
         "ngayXuatVe": "14/04/2021",
-        "check": "Cổng 1"
+        "check": "Cổng 2"
     },
     {
         "key": "12",
         "stt": "12",
         "bookingCode": "ALT20210501",
-        "soVe": "012345678934",
+        "soVe": "012345678086",
         "tenSuKien": "Hội chợ triển lãm tiêu dùng 2022",
         "tinhTrang": "daSuDung",
-        "ngaySuDung": "14/04/2021",
-        "ngayXuatVe": "14/04/2021",
-        "check": "Cổng 1"
+        "ngaySuDung": "14/12/2021",
+        "ngayXuatVe": "14/02/2021",
+        "check": "Cổng 3"
     }
     
 ]

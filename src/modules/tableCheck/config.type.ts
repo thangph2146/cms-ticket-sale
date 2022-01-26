@@ -1,4 +1,4 @@
-export type TypeStatic = 'daSuDung' | 'chuaSuDung' | 'hetHan';
+export type StaticType = 'daDoiSoat' | 'chuaDoiSoat';
 
 export type TypeData = {
     key: string;
@@ -6,7 +6,7 @@ export type TypeData = {
     bookingCode: string;
     soVe: string;
     tenSuKien: string;
-    tinhTrang: string;
+    doiSoat: string;
     ngaySuDung: string;
     ngayXuatVe: string;
     check: string;

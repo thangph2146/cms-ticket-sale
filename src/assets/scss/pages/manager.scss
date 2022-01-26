@@ -41,5 +41,16 @@
     }
     .expired {
         @include staticColor(#fd5959, #f8ebe8);
+    }.checked{
+        @include staticColor(#fd5959, #f8ebe8);
+        background: none;
+        font-style: italic;
+        border:none
+    }
+    .notChecked{
+        @include staticColor(#919dba, #f8ebe8);
+        background: none;
+        border:none;
+        font-style: italic;
     }
 }

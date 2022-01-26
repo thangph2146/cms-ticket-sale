@@ -5,8 +5,7 @@ import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../state';
 import DatePiker from '../DatePiker';
 import { TimePicker } from 'antd';
-
-import moment from 'moment';
+import data from '../../page/setting/data.json';
 const { Option } = Select;
 const ModalSettingUpdate = () => {
     const dispatch = useDispatch();
@@ -14,6 +13,7 @@ const ModalSettingUpdate = () => {
     const { modalSettingCloseUpdate } = bindActionCreators(actionCreators, dispatch);
     //===============================================
     const [state, setState] = useState({
+        dataSource: data,
         dayStart: {
             activeDate: 0,
             activeMonth: 0,
@@ -25,6 +25,7 @@ const ModalSettingUpdate = () => {
             activeYear: 0,
         },
         tinhTrang: 1,
+        
         checkIn: ['c1'],
     });
     //==================================================
@@ -81,7 +82,7 @@ const ModalSettingUpdate = () => {
         console.log(`checked = ${e.target.checked}`);
     }
     return (
-        <Modal visible={isModal} width={758}>
+        <Modal visible={isModal} width={758} >
             <form
                 className="box-modal setting"
                 onSubmit={(e: any) => e.preventDefault()}>
@@ -92,10 +93,10 @@ const ModalSettingUpdate = () => {
                     <div className="events">
                         <div className="code-event">
                             {' '}
-                            <span className="text">
+                            <span className="text" >
                                 Mã sự kiện <span className="red">*</span>
                             </span>
-                            <Input placeholder="Nhập mã sự kiện" />
+                            <Input placeholder="Nhập mã sự kiện"/>
                         </div>
                         <div className="name-event">
                             {' '}
@@ -113,7 +114,7 @@ const ModalSettingUpdate = () => {
                                 <DatePiker
                                     activeDate={state.dayStart}
                                     setActiveDate={setDayStart}
-                                    module={5}
+                                    module={2}
                                 />
                                 <TimePicker
                                     onChange={onChange}
@@ -128,7 +129,7 @@ const ModalSettingUpdate = () => {
                                 <DatePiker
                                     activeDate={state.dayStart}
                                     setActiveDate={setDayStart}
-                                    module={5}
+                                    module={2}
                                 />
                                 <TimePicker
                                     onChange={onChange}
@@ -167,8 +168,10 @@ const ModalSettingUpdate = () => {
                             showSearch
                             style={{ width: 200 }}
                             className='static-select'
-                            defaultValue="1">
-                            <Option value="1">Đang áp dụng</Option>
+                            defaultValue="daSuDung">
+                            <Option value="daSuDung">Đã sử dụng</Option>
+                            <Option value="chuaSuDung">Đang áp dụng</Option>
+                            <Option value="hetHan">Hết hạn</Option>
                         </Select>
                     </div>
                     <div className="note">

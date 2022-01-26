@@ -1,4 +1,6 @@
 import { Input } from 'antd';
+import dayjs from 'dayjs';
+import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { FiCalendar} from 'react-icons/fi'
 import TickDatePiker from './DatePiker';
@@ -25,6 +27,10 @@ const DatePiker = (props: any) => {
             day: dt.getDay(),
         });
     }, []);
+
+
+
+    
     //======================================================
     //===================================================
     // sự kện nút button nhấn next hoặc prev
@@ -93,12 +99,13 @@ const DatePiker = (props: any) => {
     // set giá trị input
     ///================================================
     let inputDate = activeD < 10 ? `0${activeD}` : activeD;
-    let inputMonth =
-        activeMonth + 1 < 10 ? `0${activeMonth + 1}` : activeMonth + 1;
+    let inputMonth = activeMonth + 1 < 10 ? `0${activeMonth}` : activeMonth + 1;
     let inputModule2 = `${inputDate}/${inputMonth}/${activeYear}`;
     let inputModule1 = `Tháng ${activeMonth + 1}, ${activeYear}`;
     let classModule;
     let inputValue;
+   
+          
     switch (module) {
         case 1:
             inputValue = inputModule1;
@@ -113,7 +120,7 @@ const DatePiker = (props: any) => {
             classModule = 'module3';
             break;
         case 4:
-            inputValue = 'dd/mm/yy';
+            inputValue =  inputModule1;
             classModule = 'module4';
             break;
         case 5:
@@ -132,7 +139,7 @@ const DatePiker = (props: any) => {
     return (
         <div className={`date-piker ${classModule}`}>
             <Input value={inputValue} />
-
+          
             <i onClick={() => setShow(!show)}>
                 <FiCalendar />
             </i>

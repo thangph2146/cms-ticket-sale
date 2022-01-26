@@ -6,6 +6,7 @@ function NavBarController() {
         <div className="navbar">
             <TopNavBar />
             <BottomNavBar />
+            <div className="footer"> <p>Copyright © 2020 Alta Software</p></div>
         </div>
     )
 }

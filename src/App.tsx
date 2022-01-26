@@ -16,9 +16,9 @@ function App() {
           <Container />
          
       </BrowserRouter>
-      <ModalManager />
-      <ModalSettingAdd />
-      <ModalSettingUpdate />
+      
+      
+      
     </div>
   );
 }

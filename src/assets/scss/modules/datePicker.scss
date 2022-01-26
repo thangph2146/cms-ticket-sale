@@ -166,15 +166,17 @@
 .module2 {
     width: 180px;
     .date-piker-content {
-        left: 0;
+        right: 0;
     }
 }
 .module1 {
     width: 180px;
     .date-piker-content {
-        right: 0;
+        top: auto;
+        right: auto;
     }
 }
+
 .module4 {
     width: 180px;
     .date-piker-content {
@@ -187,6 +189,7 @@
 .module3 {
     width: 180px;
     .date-piker-content {
+        top: auto;
         right: 0;
     }
     input {

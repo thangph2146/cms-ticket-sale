@@ -2,6 +2,10 @@ import { Table } from 'antd';
 import React from 'react';
 import { columns } from './config';
 import {GrPrevious,GrNext} from 'react-icons/gr';
+import ModalSettingUpdate from '../modalSetting/ModalSettingUpdate';
+
+
+
 const TableSetting = (props: any) => {
     function itemRender(current: number, type: string, originalElement: any) {
         if (type === 'prev') {
@@ -20,6 +24,7 @@ const TableSetting = (props: any) => {
         }
         return originalElement;
     }
+    
     return (
         <div className="box-table">
             <Table
@@ -32,6 +37,7 @@ const TableSetting = (props: any) => {
                     itemRender: itemRender,
                 }}
             />
+            
         </div>
     );
 };

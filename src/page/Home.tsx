@@ -47,7 +47,7 @@ function HomePage() {
                     <DatePiker
                         activeDate={state.day}
                         setActiveDate={setDay}
-                        module={1}
+                        module={4}
                     />
                 </div>
                 <LineChart />

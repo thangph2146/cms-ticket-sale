@@ -2,64 +2,64 @@
     {
         "key": "1",
         "stt": "1",
-        "soVe": "012345678934'",
+        "soVe": "012893456734",
         "ngaySuDung": "14/04/2021",
         "tenVe": "Vé cổng",
         "check": "Cổng 1",
-        "doiSoat": "Chưa đối soát"
+        "doiSoat": "daDoiSoat"
     },
     {
         "key": "2",
         "stt": "2",
-        "soVe": "012345678934'",
-        "ngaySuDung": "14/04/2021",
+        "soVe": "015678234934",
+        "ngaySuDung": "14/05/2021",
         "tenVe": "Vé cổng",
         "check": "Cổng 1",
-        "doiSoat": "Chưa đối soát"
+        "doiSoat": "chuaDoiSoat"
     },
     {
         "key": "3",
         "stt": "3",
-        "soVe": "012345678934'",
-        "ngaySuDung": "14/04/2021",
+        "soVe": "067893123454",
+        "ngaySuDung": "14/06/2021",
         "tenVe": "Vé cổng",
         "check": "Cổng 1",
-        "doiSoat": "Chưa đối soát"
+        "doiSoat": "chuaDoiSoat"
     },
     {
         "key": "4",
         "stt": "4",
-        "soVe": "012345678934'",
-        "ngaySuDung": "14/04/2021",
+        "soVe": "015678934234",
+        "ngaySuDung": "14/07/2021",
         "tenVe": "Vé cổng",
         "check": "Cổng 1",
-        "doiSoat": "Chưa đối soát"
+        "doiSoat": "chuaDoiSoat"
     },
     {
         "key": "5",
         "stt": "5",
-        "soVe": "012345678934'",
-        "ngaySuDung": "14/04/2021",
+        "soVe": "012349345678",
+        "ngaySuDung": "14/08/2021",
         "tenVe": "Vé cổng",
         "check": "Cổng 1",
-        "doiSoat": "Chưa đối soát"
+        "doiSoat": "chuaDoiSoat"
     },
     {
         "key": "6",
         "stt": "6",
-        "soVe": "012345678934'",
-        "ngaySuDung": "14/04/2021",
+        "soVe": "018923456734",
+        "ngaySuDung": "14/09/2021",
         "tenVe": "Vé cổng",
         "check": "Cổng 1",
-        "doiSoat": "Chưa đối soát"
+        "doiSoat": "chuaDoiSoat"
     },
     {
         "key": "7",
         "stt": "7",
-        "soVe": "012345678934'",
-        "ngaySuDung": "14/04/2021",
+        "soVe": "012345678934",
+        "ngaySuDung": "14/10/2021",
         "tenVe": "Vé cổng",
         "check": "Cổng 1",
-        "doiSoat": "Chưa đối soát"
+        "doiSoat": "chuaDoiSoat"
     }
 ]

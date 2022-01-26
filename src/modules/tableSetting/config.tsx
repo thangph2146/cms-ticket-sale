@@ -10,7 +10,9 @@ interface typeColumn {
     onFilter?: any;
     filters?: any;
     filteredValue?: any;
+    props?: any;
 }
+
 export const columns: Array<typeColumn> = [
     {
         title: 'STT',
@@ -73,8 +75,12 @@ export const columns: Array<typeColumn> = [
         title: '',
         key: 'update',
         dataIndex: 'update',
-        render: () => {
+
+        render: (record: any) => {
             return <Update />;
         },
+        
     },
+    
 ];
+

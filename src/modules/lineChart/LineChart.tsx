@@ -34,6 +34,7 @@ const options: any = {
       display: false,
     },
   },
+  
   scales: {
     y: {
       color: "rgba(136, 136, 136, 1)",
@@ -94,7 +95,7 @@ export default function LineChart() {
 
   return (
     <div>
-      <Line id="canvas" data={data} options={options} />
+      <Line id="canvas" data={data} options={options} height={50} />
     </div>
   );
 }

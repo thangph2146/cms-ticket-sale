@@ -1,31 +1,37 @@
-import { Col, Radio, Row, Space } from "antd";
+import { Col, Form, Input, Radio, Row, Space } from "antd";
 import { useEffect, useState } from "react";
+import { GrSearch } from "react-icons/gr";
 import DatePiker from "../../modules/DatePiker";
 import Search from "../../modules/search/Search";
 import TableCheck from "../../modules/tableCheck/TableCheck";
 import Title from "../../modules/title/Title";
 import  data  from "./data.json";
+import dayjs from 'dayjs'
+import moment from "moment";
+
+
+
 
 function CheckedPage() {
     const [state, setState] = useState({
-        textSearch: '2022',
-        dataFilter: {},
         dataTable: data,
+        textSearch: '',
+        valueRadio: '',
         dayStart: {
             activeDate: 0,
             activeMonth: 0,
             activeYear: 0,
         },
+        
         dayEnd: {
             activeDate: 0,
             activeMonth: 0,
             activeYear: 0,
         },
     });
-    const [value, setValue] = useState(1);
-    const onChange = (e: any) => {
-        setValue(e.target.value);
-    };
+
+    
+    
     //=======================================
     //==================================================
     // khởi tạo giá trị cho ngày
@@ -36,7 +42,7 @@ function CheckedPage() {
             ...state,
             dayStart: {
                 activeDate: d.getDate(),
-                activeMonth: d.getMonth(),
+                activeMonth: d.getMonth() + 1,
                 activeYear: d.getFullYear(),
             },
             dayEnd: {
@@ -60,6 +66,7 @@ function CheckedPage() {
                 activeMonth: month,
                 activeYear: year,
             },
+            
         });
     };
     const setDayEnd = (date: any, month: any, year: any) => {
@@ -72,17 +79,73 @@ function CheckedPage() {
             },
         });
     };
-    const handleSearch = (e: string) => {
-        let datas = [{}];
-        if (e) {
-            datas = state.dataTable.filter(function (item: any) {
-                return (
-                    item.bookingCode.toLowerCase().indexOf(e.toLowerCase()) !== -1
-                );
-            });
-        }
 
-    };
+
+    //=======================================
+    //==================================================
+    // Event radio button data filter
+    //==================================================
+  
+    const onChange = (e: any) => {
+        setState({
+            ...state,
+            valueRadio: e.target.value
+        })
+        console.log(e.target.value)
+    }
+
+    //=======================================
+    //==================================================
+    // Event search form data filter
+    //==================================================
+
+
+    const onFinish = (values: any) => {
+        console.log('Success: ',values.soVe.trim())
+        return setState({
+            ...state,
+            textSearch: values.soVe.trim()
+            
+        })
+     };
+    
+    const onFinishFailed = (errorInfo: any) => {
+         console.log('Failed:', errorInfo);
+         return setState({
+            ...state,
+            textSearch: ''
+        })
+     };
+     
+    //=======================================
+    //==================================================
+    // Event  date filter
+    //==================================================
+
+        const dateStringStart = new Date(`${state.dayStart.activeYear}/${state.dayStart.activeMonth + 1}/${state.dayStart.activeDate}`)
+        const dateMomentStart = moment(dateStringStart, "DD/MM/YYYY")
+        const dateStart = dateMomentStart.toDate()
+        
+        
+
+        const dateStringEnd = new Date(`${state.dayEnd.activeYear}/${state.dayEnd.activeMonth + 1}/${state.dayEnd.activeDate}`)
+        const dateMomentEnd = moment(dateStringEnd, "DD/MM/YYYY")
+        const dateEnd = dateMomentEnd.toDate()
+
+        console.log('start:',dateStart.getTime())
+        console.log('end:', dateEnd.getTime())
+   
+
+    const handleFilter=()=>{
+  
+        return state.dataTable.filter(
+            (e)=>e.soVe.toLowerCase().includes(state.textSearch.toLowerCase()) &&
+            e.doiSoat.toLowerCase().includes(state.valueRadio.toLowerCase()) &&
+            moment(e.ngaySuDung, "DD/MM/YYYY").toDate().getTime() > dateStart.getTime() &&
+             moment(e.ngaySuDung, "DD/MM/YYYY").toDate().getTime()  < dateEnd.getTime()
+    
+        )
+    }
     //=====================================================================
     return (
         <Row id="tick-check">
@@ -91,11 +154,17 @@ function CheckedPage() {
 
                 <Row className="tick-check-header" justify="space-between">
                     <Col span={8}>
-                        <Search
-                            children={'Tìm bằng số vé'}
-                            background={'#F7F7F8'}
-                           onSubmit={handleSearch}
-                        />
+                    <Search 
+                        onFinish={onFinish}
+                        onFinishFailed={onFinishFailed}
+                        name="soVe"
+                        rules={[
+                            { required: true, message: 'Please input your ticket code!' }
+                        ]}
+                        placeholder={'Nhập vào số vé...'}
+                        style={{ background: '#F7F7F8' }}
+
+                    />
                     </Col>
                     <Col>
                         <div className="tick-check-buttons">
@@ -106,7 +175,7 @@ function CheckedPage() {
                     </Col>
                 </Row>
                 <Row>
-                    <TableCheck data={state.dataTable} />
+                    <TableCheck data={handleFilter()}/>
                 </Row>
             </Col>
             <Col flex="450px" className="page-content">
@@ -117,22 +186,22 @@ function CheckedPage() {
                             <span className="text">Tình trạng đối soát</span>
                         </Col>
                         <Col span={12}>
-                            <Radio.Group onChange={onChange} value={value}>
+                            <Radio.Group onChange={onChange} value={state.valueRadio}>
                                 <Space direction="vertical">
-                                    <Radio value={1}>
+                                    <Radio value={''}>
                                         {' '}
                                         <span className="text-value">
                                             {' '}
                                             Tất cả
                                         </span>
                                     </Radio>
-                                    <Radio value={2}>
+                                    <Radio value={'daDoiSoat'}>
                                         <span className="text-value">
                                             {' '}
                                             Đã đối soát
                                         </span>
                                     </Radio>
-                                    <Radio value={3}>
+                                    <Radio value={'chuaDoiSoat'}>
                                         <span className="text-value">
                                             {' '}
                                             Chưa đối soát
@@ -140,6 +209,7 @@ function CheckedPage() {
                                     </Radio>
                                 </Space>
                             </Radio.Group>
+                           
                         </Col>
                     </Row>
                     <Row className="radio">
@@ -159,6 +229,7 @@ function CheckedPage() {
                                 activeDate={state.dayStart}
                                 setActiveDate={setDayStart}
                                 module={3}
+                               
                             />
                         </Col>
                     </Row>
@@ -170,7 +241,7 @@ function CheckedPage() {
                             <DatePiker
                                 activeDate={state.dayEnd}
                                 setActiveDate={setDayEnd}
-                                module={4}
+                                module={2}
                             />
                         </Col>
                     </Row>

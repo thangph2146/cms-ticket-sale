@@ -1,5 +1,5 @@
 import React from 'react';
-import { TypeStatic } from './config.type';
+import { StaticType } from './config.type';
 import Static from './Static';
 interface typeColumn {
     title: string;
@@ -10,6 +10,7 @@ interface typeColumn {
     filters?: any;
     filteredValue?: any;
 }
+
 export const columns: Array<typeColumn> = [
     {
         title: 'STT',
@@ -41,5 +42,24 @@ export const columns: Array<typeColumn> = [
         title: '',
         key: 'doiSoat',
         dataIndex: 'doiSoat',
+        
+        render: (text: StaticType) => {
+            
+            switch (text) {
+                case 'daDoiSoat':
+                    return (
+                        <Static class={'checked'} text={'Đã đổi soát'} />
+                    );
+                case 'chuaDoiSoat':
+                    return (
+                        <Static
+                            class={'notChecked'}
+                            text={'Chưa đổi soát'}
+                        />
+                    );
+                default:
+                    return <Static class={'expired'} text={''} />;
+            }
+        },
     },
 ];

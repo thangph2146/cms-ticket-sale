@@ -6,112 +6,23 @@ import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../state';
 import DatePiker from '../DatePiker';
 import { Radio } from 'antd';
+import { data } from '../pieChart/dataPiechart';
 
-const ModalManager = () => {
+const ModalManager = (props: any) => {
     //======================================
     // reducer component
     //======================================
     const dispatch = useDispatch();
     const isModal = useSelector((state: any) => state.modal.isModalManager);
     const { modalManagerClose,modalManagerData } = bindActionCreators(actionCreators, dispatch);
-    //======================================
-    // state component
-    //======================================
-    const [state, setState] = useState({
-        dayStart: {
-            activeDate: 0,
-            activeMonth: 0,
-            activeYear: 0,
-        },
-        dayEnd: {
-            activeDate: 0,
-            activeMonth: 0,
-            activeYear: 0,
-        },
-        tinhTrang: 1,
-        checkIn: ['c1'],
-    });
-    //==================================================
-    // initial day value for date
-    //==================================================
-    useEffect(() => {
-        const d = new Date();
-        setState({
-            ...state,
-            dayStart: {
-                activeDate: d.getDate(),
-                activeMonth: d.getMonth(),
-                activeYear: d.getFullYear(),
-            },
-            dayEnd: {
-                activeDate: d.getDate(),
-                activeMonth: d.getMonth() + 1 > 11 ? 0 : d.getMonth() + 1,
-                activeYear:
-                    d.getMonth() + 1 > 11
-                        ? d.getFullYear() + 1
-                        : d.getFullYear(),
-            },
-        });
-    }, []);
-    //===================================================
-    // reset date start and finish
-    //===================================================
-    const setDayStart = (date: any, month: any, year: any) => {
-        setState({
-            ...state,
-            dayStart: {
-                activeDate: date,
-                activeMonth: month,
-                activeYear: year,
-            },
-        });
-    };
-    const setDayEnd = (date: any, month: any, year: any) => {
-        setState({
-            ...state,
-            dayEnd: {
-                activeDate: date,
-                activeMonth: month,
-                activeYear: year,
-            },
-        });
-    };
-    //=====================================================================
-    // function radio
-    //=====================================================================
-    const onChangeRadio = (e: any) => {
-        setState({
-            ...state,
-            tinhTrang: e.target.value,
-        });
-    };
-    //=====================================================================
-    // function check in
-    //=====================================================================
-    const [disAbled, setDisAbled] = useState(false);
-    const onChangeCheck = (list: any) => {
-        let all = list.find((e: any) => e === 'all');
-        if (all || list.length === 5) {
-            setState({
-                ...state,
-                checkIn: ['all'],
-            });
-            setDisAbled(true);
-        } else {
-            setDisAbled(false);
-            setState({
-                ...state,
-                checkIn: list,
-            });
-        }
-    };
+  
 //===================================================
 // button submit
 //===================================================
 const handleSubmit = ()=>{
-    modalManagerData(state);
+    modalManagerData(props.state);
     modalManagerClose()
-
+ 
 }
     return (
         <Modal visible={isModal} width={634}>
@@ -128,8 +39,9 @@ const handleSubmit = ()=>{
                                 <span>Từ ngày</span>
 
                                 <DatePiker
-                                    activeDate={state.dayStart}
-                                    setActiveDate={setDayStart}
+                                    activeDate={props.activeDateStart}
+                                    setActiveDate={props.setActiveDateStart}
+                                    module={2}
                                 />
                             </div>
                         </Col>
@@ -137,8 +49,9 @@ const handleSubmit = ()=>{
                             <div className="box-modal-day-content ">
                                 <span>Đến ngày</span>
                                 <DatePiker
-                                    activeDate={state.dayEnd}
-                                    setActiveDate={setDayEnd}
+                                    activeDate={props.activeDateEnd}
+                                    setActiveDate={props.setActiveDateEnd}
+                                    module={2}
                                 />
                             </div>
                         </Col>
@@ -147,48 +60,48 @@ const handleSubmit = ()=>{
                 <div className="box-modal-static">
                     <span>Tình trạng sử dụng</span>
                     <Radio.Group
-                        onChange={onChangeRadio}
-                        value={state.tinhTrang}>
-                        <Radio value={0}>Tất cả</Radio>
-                        <Radio value={1}>Đã sử dụng</Radio>
-                        <Radio value={2}>Chưa sử dụng</Radio>
-                        <Radio value={3}>Hết hạn</Radio>
+                        onChange={props.onChangeRadio}
+                        value={props.valueRadio}>
+                        <Radio value={''}>Tất cả</Radio>
+                        <Radio value={'daSuDung'}>Đã sử dụng</Radio>
+                        <Radio value={'chuaSuDung'}>Chưa sử dụng</Radio>
+                        <Radio value={'hetHan'}>Hết hạn</Radio>
                     </Radio.Group>
                 </div>
                 <div className="box-modal-check">
                     <span>Cổng Check-in</span>
                     <Checkbox.Group
                         style={{ width: '100%' }}
-                        value={state.checkIn}
-                        onChange={onChangeCheck}>
+                        value={props.valueCheck}
+                        onChange={props.onChangeCheck}>
                         <Row className="row1">
                             <Col span={8}>
-                                <Checkbox value="all">Tất cả</Checkbox>
+                                <Checkbox name="check" value="all">Tất cả</Checkbox>
                             </Col>
                             <Col span={8}>
-                                <Checkbox value="c1" disabled={disAbled}>
+                                <Checkbox value="Cổng 1" disabled={props.disabled}>
                                     Cổng 1
                                 </Checkbox>
                             </Col>
                             <Col span={8}>
-                                <Checkbox value="c2" disabled={disAbled}>
+                                <Checkbox value="Cổng 2" disabled={props.disabled}>
                                     Cổng 2
                                 </Checkbox>
                             </Col>
                         </Row>
                         <Row className="row2">
                             <Col span={8}>
-                                <Checkbox value="c3" disabled={disAbled}>
+                                <Checkbox value="Cổng 3" disabled={props.disabled}>
                                     Cổng 3
                                 </Checkbox>
                             </Col>
                             <Col span={8}>
-                                <Checkbox value="c4" disabled={disAbled}>
+                                <Checkbox value="Cổng 4" disabled={props.disabled}>
                                     Cổng 4
                                 </Checkbox>
                             </Col>
                             <Col span={8}>
-                                <Checkbox value="c5" disabled={disAbled}>
+                                <Checkbox value="Cổng 5" disabled={props.disabled}>
                                     Cổng 5
                                 </Checkbox>
                             </Col>
@@ -197,8 +110,7 @@ const handleSubmit = ()=>{
                 </div>
                 <div className="box-modal-button">
                     <button
-                        onClick={() => handleSubmit()
-                        }
+                        onClick={() => handleSubmit()}
                         className="btn-modal"
                         type="submit">
                         {' '}

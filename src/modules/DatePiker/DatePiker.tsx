@@ -11,7 +11,7 @@ const DatePicker = (props: TypePropsTickDatePiker) => {
         handleClick,
         active,
         onChange,
-
+        
         valueRadio,
     } = props;
 
@@ -19,6 +19,7 @@ const DatePicker = (props: TypePropsTickDatePiker) => {
     useEffect(() => {
         setWeeks(arrayMonth(state, active));
     }, [state.month, state.year, state.date]);
+    
     return (
         <div className="date-piker-content">
             <div className="month">

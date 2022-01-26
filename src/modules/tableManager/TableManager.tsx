@@ -28,6 +28,7 @@ const TableManager = (props:any) => {
                 columns={columns}
                 dataSource={props.data}
                 rowClassName={'helo'}
+                
                 loading={false}
                 pagination={{
                     position: ['bottomCenter'],

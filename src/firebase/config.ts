@@ -1,8 +1,4 @@
 
-import firebase from 'firebase/compat/app'
-import 'firebase/compat/database'
-
-
 const firebaseConfig = {
     apiKey: "AIzaSyDIQcREC2_PE7IgGDchwCIS2Jvz5I3rT9c",
     authDomain: "cms-ticket-sale-application.firebaseapp.com",
@@ -14,4 +10,4 @@ const firebaseConfig = {
     measurementId: "G-LN5GKR44S2"
   };
 
-
+export default firebaseConfig
