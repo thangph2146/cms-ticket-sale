@@ -1,10 +1,10 @@
 import { TypeActive, TypeSate } from './type';
 
-export const tableTitle = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
+export const tableTitle:Array<string> = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
 
 //=============================================================
 //=============================================================
-//== function get month and year return day number of the year
+//== hàm lấy tháng và nam trả về sô ngày trong tháng
 
 export const dataMonth = (month: number, year: number) => {
     const isCheck = (year: number) => {
@@ -37,7 +37,7 @@ export const dataMonth = (month: number, year: number) => {
 
 //=============================================================
 //=============================================================
-//== function add day into list of week
+//== hàm thêm ngày vào mang thứ
 
 export const arrayMonth = (state: TypeSate, active: TypeActive) => {
     let i = 1,
@@ -48,10 +48,10 @@ export const arrayMonth = (state: TypeSate, active: TypeActive) => {
         t6 = [],
         t7 = [],
         cn = [];
-    const { month, year, date } = state;
+    const { month, year } = state;
     const { activeMonth, activeYear, activeDate } = active;
     //==================================================
-    //========================= add day and month into list of week=========================
+    //========================= thêm ngày thang hien tại vào thứ=========================
     //==================================================
 
     const soDate = dataMonth(month, year);
@@ -109,7 +109,7 @@ export const arrayMonth = (state: TypeSate, active: TypeActive) => {
     }
 
     //================================================
-    //======================add day and month prev into list of week==========================
+    //======================thêm ngày thang trước hien tại vào thứ==========================
     //================================================
 
     let mothPrev = month - 1 < 0 ? 11 : month - 1;
@@ -163,12 +163,10 @@ export const arrayMonth = (state: TypeSate, active: TypeActive) => {
         }
     }
     //============================================
-    //===================add day and month into list of week=========================
+    //===================thêm ngày thang sau hien tại vào thứ=========================
     //============================================
     let mothNext = month + 1 > 11 ? 0 : month + 1;
     let yearNext = month + 1 > 11 ? year + 1 : year;
-    const dNext = new Date(yearNext, mothNext, 1);
-    let dayNext = dNext.getDay();
     i = 1;
     for (i; i <= 6; i++) {
         const dnext = new Date(yearNext, mothNext, i);

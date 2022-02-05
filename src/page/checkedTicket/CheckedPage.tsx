@@ -30,8 +30,7 @@ function CheckedPage() {
         },
     });
 
-    
-    
+
     //=======================================
     //==================================================
     // khởi tạo giá trị cho ngày
@@ -42,12 +41,12 @@ function CheckedPage() {
             ...state,
             dayStart: {
                 activeDate: d.getDate(),
-                activeMonth: d.getMonth() + 1,
+                activeMonth: d.getMonth(),
                 activeYear: d.getFullYear(),
             },
             dayEnd: {
                 activeDate: d.getDate(),
-                activeMonth: d.getMonth() + 1 > 11 ? 0 : d.getMonth() + 1,
+                activeMonth: d.getMonth() + 1 > 11 ? 0 : d.getMonth(),
                 activeYear:
                     d.getMonth() + 1 > 11
                         ? d.getFullYear() + 1
@@ -94,29 +93,8 @@ function CheckedPage() {
         console.log(e.target.value)
     }
 
-    //=======================================
-    //==================================================
-    // Event search form data filter
-    //==================================================
+  
 
-
-    const onFinish = (values: any) => {
-        console.log('Success: ',values.soVe.trim())
-        return setState({
-            ...state,
-            textSearch: values.soVe.trim()
-            
-        })
-     };
-    
-    const onFinishFailed = (errorInfo: any) => {
-         console.log('Failed:', errorInfo);
-         return setState({
-            ...state,
-            textSearch: ''
-        })
-     };
-     
     //=======================================
     //==================================================
     // Event  date filter
@@ -135,17 +113,19 @@ function CheckedPage() {
         console.log('start:',dateStart.getTime())
         console.log('end:', dateEnd.getTime())
    
-
+        const [search, setSearch] = useState<string>('');
+        console.log('success: ',search)
     const handleFilter=()=>{
   
         return state.dataTable.filter(
-            (e)=>e.soVe.toLowerCase().includes(state.textSearch.toLowerCase()) &&
+            (e)=>e.soVe.toLowerCase().includes(search.toLowerCase()) &&
             e.doiSoat.toLowerCase().includes(state.valueRadio.toLowerCase()) &&
             moment(e.ngaySuDung, "DD/MM/YYYY").toDate().getTime() > dateStart.getTime() &&
-             moment(e.ngaySuDung, "DD/MM/YYYY").toDate().getTime()  < dateEnd.getTime()
+            moment(e.ngaySuDung, "DD/MM/YYYY").toDate().getTime()  < dateEnd.getTime()
     
         )
     }
+    
     //=====================================================================
     return (
         <Row id="tick-check">
@@ -155,14 +135,14 @@ function CheckedPage() {
                 <Row className="tick-check-header" justify="space-between">
                     <Col span={8}>
                     <Search 
-                        onFinish={onFinish}
-                        onFinishFailed={onFinishFailed}
-                        name="soVe"
+                      search={search}
+                      setSearch={setSearch}
+                        
                         rules={[
                             { required: true, message: 'Please input your ticket code!' }
                         ]}
-                        placeholder={'Nhập vào số vé...'}
-                        style={{ background: '#F7F7F8' }}
+                        children={'Nhập vào số vé...'}
+                        background={'#F7F7F8' }
 
                     />
                     </Col>

@@ -1,91 +1,92 @@
-import { Col, Form, Input, Row } from "antd";
-import { ChangeEvent, useState } from "react";
-import { GrSearch } from "react-icons/gr";
-import { useDispatch } from "react-redux";
-import { bindActionCreators } from "redux";
-import ButtonImport from "../../modules/buttons/ButtonImport";
-import ModalSettingAdd from "../../modules/modalSetting/ModalSettingAdd";
-import ModalSettingUpdate from "../../modules/modalSetting/ModalSettingUpdate";
-import Search from "../../modules/search/Search";
-import TableSetting from "../../modules/tableSetting/TableSetting";
-import Title from "../../modules/title/Title";
-import { actionCreators } from "../../state";
-import  data  from "./data.json";
-
-
-
-function ServicePage() {
-    const [state, setState] = useState({
-        dataTable: data,
-        newPackage: []
-    });
-    
-    //===============================
-    const dispatch = useDispatch();
-    const { modalSettingOpenAdd } = bindActionCreators(actionCreators, dispatch);
-
-    const[textSearch,setTextSearch] = useState('')
-
-    const onFinish = (values: any) => {
-        console.log('Success: ',values)
-        return setTextSearch(values.maGoi.trim())
-     };
-    
-    const onFinishFailed = (errorInfo: any) => {
-         console.log('Failed:', errorInfo);
-         return setTextSearch('')
-     };
-    
-    const handleSearchFilter=()=>{
-        if(textSearch) {
-            const dataFilter = state.dataTable.filter(e=>e.maGoi.toLowerCase().includes(textSearch.toLowerCase()))
-            return dataFilter
-        }
-        else{
-            return state.dataTable;
-        }
-         
-     }
-
+import { Col, Row } from 'antd';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import ButtonImport from '../../modules/buttons/ButtonImport';
+import Search from '../../modules/search/Search';
+import TableSetting from '../../modules/tableSetting/TableSetting';
+import Title from '../../modules/title/Title';
+import ModalSetting from '../../modules/modalSetting/Index';
+const TickService: React.FC = () => {
+    //========================================
+    // state reducer
+    //========================================
+    const dataSetting = useSelector((state: any) => state.dataFirebase.setting);
+    console.log(dataSetting)
+    //========================================
+    // state
+    //========================================
+    const [isModal, setIsModal] = useState<boolean>(false);
+    const [isUpdate, setIsUpdate] = useState<boolean>(false);
+    const [dataUpdate, setDataUpdate] = useState({});
+    const [search, setSearch] = useState<string>('');
+    //==================================
+    // ham modal
+    //==================================
+    const handleModalOpen = () => {
+        setIsModal(true);
+    };
+    const handleModalClose = () => {
+        setIsModal(false);
+    };
+    const handleModalUpdateOpen = () => {
+        setIsUpdate(true);
+    };
+    const handleModalUpdateClose = () => {
+        setIsUpdate(false);
+    };
+    const handleModalAdd = () => {
+        handleModalUpdateClose();
+        handleModalOpen();
+    };
+    const handleModalUpdate = (e: any) => {
+        handleModalUpdateOpen();
+        setDataUpdate(e);
+        
+        handleModalOpen();
+    };
     return (
         <div id="tick-service" className="page-content">
-            <ModalSettingAdd />
-            
             <Title children={'Danh sách vé'} />
 
             <Row className="tick-service-header" justify="space-between">
                 <Col span={8}>
-                    <Search 
-                        onFinish={onFinish}
-                        onFinishFailed={onFinishFailed}
-                        name="maGoi"
+                    <Search
+                        children={'Tìm bằng số vé'}
+                        background={'#F7F7F8'}
                         rules={[
-                            { required: true, message: 'Please input your package code!' }
+                            { required: true, message: 'Please input your ticket code!' }
                         ]}
-                        placeholder={'Nhập vào mã gói...'}
-                        style={{ background: '#F7F7F8' }}
-
+                        search={search}
+                        setSearch={setSearch}
                     />
-               
                 </Col>
                 <Col>
                     <div className="tick-service-buttons">
                         <ButtonImport />
                         <button
                             className="btn-primary"
-                            onClick={modalSettingOpenAdd}
-                        >
+                            onClick={handleModalAdd}>
                             Thêm gói vé
                         </button>
                     </div>
                 </Col>
             </Row>
             <Row>
-                <TableSetting data={handleSearchFilter()} />
-                <ModalSettingUpdate />
+                <TableSetting
+                    data={dataSetting}
+                    handleModalUpdate={handleModalUpdate}
+                    search={search}
+                />
             </Row>
+            <ModalSetting
+                isModal={isModal}
+                handleModalClose={handleModalClose}
+                dataSetting={dataSetting}
+                dataUpdate={dataUpdate}
+                isUpdate={isUpdate}
+            />
         </div>
     );
-}
+};
 
-export default ServicePage
+export default TickService;

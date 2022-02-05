@@ -33,8 +33,8 @@ function ManagerPage(props: any) {
             activeYear: 0,
         },
     });
-   
-        //=======================================
+    console.log(state.dataTable);
+    //=======================================
     //==================================================
     // khởi tạo giá trị cho ngày
     //==================================================
@@ -44,12 +44,12 @@ function ManagerPage(props: any) {
             ...state,
             dayStart: {
                 activeDate: d.getDate(),
-                activeMonth: d.getMonth() + 1,
+                activeMonth: d.getMonth(),
                 activeYear: d.getFullYear(),
             },
             dayEnd: {
                 activeDate: d.getDate(),
-                activeMonth: d.getMonth() + 1 > 11 ? 0 : d.getMonth() + 1,
+                activeMonth: d.getMonth() + 1 > 11 ? 0 : d.getMonth(),
                 activeYear:
                     d.getMonth() + 1 > 11
                         ? d.getFullYear() + 1
@@ -84,10 +84,10 @@ function ManagerPage(props: any) {
 
 
     //=======================================
-    //=================================================
+    //==================================================
     // Event radio button data filter
     //==================================================
- 
+  
     const onChangeRadio = (e: any) => {
         setState({
             ...state,
@@ -95,30 +95,6 @@ function ManagerPage(props: any) {
         })
         console.log(e.target.value)
     }
-   
-    //=======================================
-    //==================================================
-    // Event search form data filter
-    //==================================================
-  
-    const onFinish = (values: any) => {
-        console.log('Success: ',values)
-        return setState({
-            ...state,
-            textSearch: values.soVe.trim()
-            
-        })
-     
-     };
-    
-    const onFinishFailed = (errorInfo: any) => {
-         console.log('Failed:', errorInfo);
-         return setState({
-             ...state,
-             textSearch: ''
-         })
-     };
-    
 
 
     //=====================================================================
@@ -151,6 +127,8 @@ function ManagerPage(props: any) {
           
         }
     };
+    const [search, setSearch] = useState<string>('');
+    console.log(search)
     const dateStringStart = new Date(`${state.dayStart.activeYear}/${state.dayStart.activeMonth + 1}/${state.dayStart.activeDate}`)
     const dateMomentStart = moment(dateStringStart, "DD/MM/YYYY")
     const dateStart = dateMomentStart.toDate()
@@ -163,20 +141,20 @@ function ManagerPage(props: any) {
 
     console.log('start:',dateStart.getTime())
     console.log('end:', dateEnd.getTime())
-
+   
    const handleFilter=()=>{
-  
+    
     return state.dataTable.filter(
-        (e)=>e.soVe.toLowerCase().includes(state.textSearch.toLowerCase())&&
-       
-        e.check.toLowerCase().includes(state.checkIn.toString().toLowerCase())&&
+        (e)=>e.soVe.toLowerCase().includes(search.toLowerCase().trim())&&
         e.tinhTrang.toLowerCase().includes(state.valueRadio.toLowerCase())&&
         moment(e.ngaySuDung, "DD/MM/YYYY").toDate().getTime() > dateStart.getTime() &&
-         moment(e.ngaySuDung, "DD/MM/YYYY").toDate().getTime()  < dateEnd.getTime()
+        moment(e.ngaySuDung, "DD/MM/YYYY").toDate().getTime()  < dateEnd.getTime()
+     
 
     )
     
    }
+
     return (
         
         <div id="tick-manager">
@@ -197,14 +175,14 @@ function ManagerPage(props: any) {
             <Row className="tick-manager-header">
                 <Col span={8}>
                 <Search 
-                        onFinish={onFinish}
-                        onFinishFailed={onFinishFailed}
-                        name="soVe"
+                       search={search}
+                       setSearch={setSearch}
+                        
                         rules={[
                             { required: true, message: 'Please input your ticket code!' }
                         ]}
-                        placeholder={'Nhập vào số vé...'}
-                        style={{ background: '#F7F7F8' }}
+                        children={'Nhập vào số vé...'}
+                        background={'#F7F7F8'}
 
                     />
                 </Col>

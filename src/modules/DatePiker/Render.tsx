@@ -51,9 +51,9 @@ export const renderRowTable: TypeRenderRowTable = (
     handleClick: any,
     valueRadio: any
 ) => {
-    let xhtml;
+    let html;
     if (weeks) {
-        xhtml = weeks.map((week: any, j: any) => {
+        html = weeks.map((week: any, j: any) => {
             let trActive = week.find((item: any) => item.active === 1);
             return (
                 <tr
@@ -66,5 +66,5 @@ export const renderRowTable: TypeRenderRowTable = (
         });
     }
 
-    return xhtml;
+    return html;
 };

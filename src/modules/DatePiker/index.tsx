@@ -4,7 +4,11 @@ import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { FiCalendar} from 'react-icons/fi'
 import TickDatePiker from './DatePiker';
-import { TypeDay } from './type';
+import { State, TypeDay } from './type';
+import {Props} from './type'
+
+
+
 
 const DatePiker = (props: any) => {
     const { activeDate, setActiveDate, module } = props;
@@ -99,7 +103,8 @@ const DatePiker = (props: any) => {
     // set giá trị input
     ///================================================
     let inputDate = activeD < 10 ? `0${activeD}` : activeD;
-    let inputMonth = activeMonth + 1 < 10 ? `0${activeMonth}` : activeMonth + 1;
+    let inputMonth = activeMonth + 1 < 10 ? `0${activeMonth + 1}` : activeMonth + 1;
+    let inputModule3 = `${inputDate}/${inputMonth}/${activeYear}`;
     let inputModule2 = `${inputDate}/${inputMonth}/${activeYear}`;
     let inputModule1 = `Tháng ${activeMonth + 1}, ${activeYear}`;
     let classModule;
@@ -124,7 +129,7 @@ const DatePiker = (props: any) => {
             classModule = 'module4';
             break;
         case 5:
-            inputValue = 'dd/mm/yy';
+            inputValue = inputModule3;
             classModule = 'module2';
             break;
 
@@ -158,3 +163,4 @@ const DatePiker = (props: any) => {
 };
 
 export default DatePiker;
+

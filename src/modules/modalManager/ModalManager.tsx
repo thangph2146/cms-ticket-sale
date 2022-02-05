@@ -6,7 +6,6 @@ import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../state';
 import DatePiker from '../DatePiker';
 import { Radio } from 'antd';
-import { data } from '../pieChart/dataPiechart';
 
 const ModalManager = (props: any) => {
     //======================================

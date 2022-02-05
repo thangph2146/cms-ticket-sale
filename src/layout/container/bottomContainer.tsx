@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import CheckedPage from "../../page/checkedTicket/CheckedPage"
-import HomePage from "../../page/Home"
+import HomePage from "../../page/home/Home"
 import ManagerPage from "../../page/managerTicket/Manager"
 import ServicePage from "../../page/setting/ServicePage"
 

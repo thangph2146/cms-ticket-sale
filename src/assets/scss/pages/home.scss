@@ -5,102 +5,77 @@
     top: 85px;
     background: #FFFFFF;
     border-radius: 24px;
-
-    .statistical-content {
-        padding: 24px;
-        margin-top: 20px;
-        border-radius: 24px;
-      
-        background: white;
-        h1 {
-
-            width: 178px;
-            height: 54px;
-            left: 24px;
-            top: 24px;
-          
-            /* 36 bold */
-          
-            font-style: normal;
-            font-weight: bold;
-            font-size: 36px;
-            line-height: 54px;
-            /* identical to box height, or 150% */
-          
-          
-            /* Text */
-          
-            color: #1E0D03;
+    padding:20px;
+    .home-top {
+      margin-top: 32px;
+      .text {
+          font-weight: 600;
+          font-size: 18px;
+      }
+  }
+  .home-chart-area {
+      margin-top: 25px;
+      .text {
+          margin: 30px;
+          .sub-text {
+              font-weight: 500;
+              font-size: 14px;
+              opacity: 0.5;
           }
-          .line-chart{
-            .top-line-chart {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                margin-bottom: 24px;
-                h4 {
-                    margin: 0;
-                  
-                    font-size: 18px;
-                    font-weight: 600;
-                  }
-                
+          .price {
+              .number {
+                  font-weight: bold;
+                  font-size: 24px;
               }
-          }
-          .pie-chart{
-            .top-pie-chart {
-                margin-bottom: 83px;
-                p {
-                    margin: 35px 0 8px 0;
-                  
-                    font-size: 14px;
-                    color: #1e0d03;
-                    opacity: 0.5;
-                  }
-                h1 {
-                    display: initial;
-                    margin: 0;
-                    margin-right: 4px;
-                  
-                    font-size: 24px;
-                    color: #1e0d03;
-                  }
-                span {
-                    font-size: 14px;
-                    color: #1e0d03;
-                    font-style: normal;
-                    font-weight: 500;
-                  }
-                
-              }
-              .content-pie-chart {
-                display: grid;
-                grid-template-columns: 0fr 1fr 1fr 1fr;
-               
-                .pie-chart-infor {
-                  .item {
-                    display: flex;
-                    align-items: center;
-                    margin-bottom: 16px;
-                    p {
-                      margin: 0;
-                    }
-                    .rectangle {
-                      width: 44px;
-                      height: 20px;
-                      border-radius: 4px;
-                      margin-right: 8px;
-                    
-                      background: #4f75ff;
-                    }
-                    &:nth-child(2) .rectangle {
-                      background: #ff8a48;
-                    }
-                  }
-                }
+              .vnd {
+                  font-weight: 500;
+                  font-size: 14px;
+                  margin-left: 4px;
+                  display: inline-block;
               }
           }
       }
-
+  }
+  .home-chart-pie {
+      margin-top: 70px;
+      &-piker {
+          margin-left: 30px;
+      }
+      &-content {
+          padding: 0 32px;
+          div {
+              @include dCenter;
+              span {
+                  font-weight: 600;
+                  font-size: 18px;
+                  text-align: center;
+                  margin-bottom: 15px;
+              }
+          }
+      }
+      &-legend {
+          padding-top: 32px;
+          &-content {
+              display: flex;
+              align-items: center;
+              span.color {
+                  width: 44px;
+                  height: 20px;
+                  display: block;
+                  border-radius: 4px;
+                  margin: 8px;
+              }
+              span.color1 {
+                  background: #4f75ff;
+              }
+              span.color2 {
+                  background: #ff8a48;
+              }
+              .text {
+                  font-size: 14px;
+              }
+          }
+      }
+  }
     }   
 }

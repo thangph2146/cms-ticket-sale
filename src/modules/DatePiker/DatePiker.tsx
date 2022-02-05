@@ -4,22 +4,15 @@ import React, { useEffect, useState } from 'react';
 import { arrayMonth } from './config';
 import Table from './Table';
 import { TypePropsTickDatePiker } from './type';
-const DatePicker = (props: TypePropsTickDatePiker) => {
-    const {
-        state,
-        monthPrevNext,
-        handleClick,
-        active,
-        onChange,
-        
-        valueRadio,
-    } = props;
+const DatePiker = (props: TypePropsTickDatePiker) => {
+    const { state, monthPrevNext, handleClick, active, onChange, valueRadio } =
+        props;
 
     const [weeks, setWeeks] = useState(arrayMonth(state, active));
+    const isUseEffect:Number[] = [state.month, state.year, state.date];
     useEffect(() => {
         setWeeks(arrayMonth(state, active));
-    }, [state.month, state.year, state.date]);
-    
+    }, isUseEffect); // eslint-disable-line react-hooks/exhaustive-deps
     return (
         <div className="date-piker-content">
             <div className="month">
@@ -50,4 +43,4 @@ const DatePicker = (props: TypePropsTickDatePiker) => {
     );
 };
 
-export default DatePicker;
+export default DatePiker;

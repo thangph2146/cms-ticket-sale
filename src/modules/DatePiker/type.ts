@@ -44,7 +44,7 @@ export interface TypeTable {
     weeks: any;
 }
 export type TypeRenderColumnTable = (
-    week: TypeWeek,
+    week: any,
     handleClick: (e: TypeDay) => void
 ) => React.FC;
 
@@ -53,3 +53,26 @@ export type TypeRenderRowTable = (
     handleClick: (e: TypeDay) => void,
     valueRadio: number
 ) => React.FC;
+
+export interface Props {
+    activeDate: {
+        activeDate: number;
+        activeMonth: number;
+        activeYear: number;
+    };
+    setActiveDate: (
+        activeDate: number,
+        activeMonth: number,
+        activeYear: number
+    ) => void;
+    module: number;
+    valueRadio: number;
+    setValueRadio: (e:number)=>void;
+}
+
+export interface State {
+    date: number,
+    month: number,
+    year: number,
+    day: number,
+}
